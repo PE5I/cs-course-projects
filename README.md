@@ -1,3 +1,3 @@
 # cpts-projects
 
-Projects compiled from various computer science classes and assignments.
+This repository contains a collection of old projects from computer science.
