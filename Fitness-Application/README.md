@@ -1,2 +1,2 @@
 # Fitness-Application
-First project on Cpp
+First project on C++ from fall 2017.
