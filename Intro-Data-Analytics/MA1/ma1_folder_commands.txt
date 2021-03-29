@@ -1,0 +1,59 @@
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester
+$ mkdir cpts215
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester
+$ cd cpts215/
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215
+$ mkdir lesson_notes prog_assignments micro_assignments project
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215
+$ cd micro_assignments/
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215/micro_assignments
+$ mkdir MA1
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215/micro_assignments
+$ cd MA1/
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215/micro_assignments/MA1
+$ touch primality_test.py
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215/micro_assignments/MA1
+$ cd ../../
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215
+$ pwd
+/c/Users/pesi/Documents/WSU 2017-2018/Spring Semester/cpts215
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215
+$ ls -R
+.:
+lesson_notes/  micro_assignments/  prog_assignments/  project/
+
+./lesson_notes:
+
+./micro_assignments:
+MA1/
+
+./micro_assignments/MA1:
+primality_test.py
+
+./prog_assignments:
+
+./project:
+
+pesi@DESKTOP-NFCHQA1 MINGW64 ~/Documents/WSU 2017-2018/Spring Semester/cpts215
+$ ls -l *
+lesson_notes:
+total 0
+
+micro_assignments:
+total 0
+drwxr-xr-x 1 pesi 197121 0 Jan  9 01:29 MA1/
+
+prog_assignments:
+total 0
+
+project:
+total 0
