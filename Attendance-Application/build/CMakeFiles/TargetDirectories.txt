@@ -1,3 +1,0 @@
-/home/pt/Dev/github/pe-si/cs-courses-code/Attendance-Application/build/CMakeFiles/rebuild_cache.dir
-/home/pt/Dev/github/pe-si/cs-courses-code/Attendance-Application/build/CMakeFiles/edit_cache.dir
-/home/pt/Dev/github/pe-si/cs-courses-code/Attendance-Application/build/CMakeFiles/attendance_app.dir
