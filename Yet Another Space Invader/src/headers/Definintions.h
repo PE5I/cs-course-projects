@@ -19,9 +19,9 @@
 #define ENEMY_SPEED 0.04
 
 //file path for menu background
-#define MENU_STATE_BACKGROUND_FILEPATH  "Jupiter1.jpg"
+#define MENU_STATE_BACKGROUND_FILEPATH  "../assets/Jupiter1.jpg"
 
 //file path fo 
-#define MENU_FONT "space_invaders.ttf"
+#define MENU_FONT "../assets/space_invaders.ttf"
 
 #endif

@@ -299,8 +299,8 @@ void PlayState::moveEnemies(vector<Enemy *>& enemies)
 }
 
 void PlayState::loadTexture() {
-	texture.loadFromFile("Bullet.jpg");
-	//playertexture.loadFromFile("player.jpg");
-	enemytexture.loadFromFile("Enemies.jpg");
+	texture.loadFromFile(BULLET);
+	playertexture.loadFromFile(PLAYER);
+	enemytexture.loadFromFile(ENEMIES);
 
 }

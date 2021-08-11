@@ -14,6 +14,10 @@
 #include "Player.h"
 #include "Enemy.h"
 
+#define BULLET "../assets/Bullet.jpg"
+#define ENEMIES "../assets/Enemies.jpg"
+#define PLAYER "../assets/player.jpg"
+
 class PlayState : public State
 {
 public:
@@ -33,6 +37,7 @@ private:
 
    sf::Texture texture;
    sf::Texture enemytexture;
+   sf::Texture playertexture;
 
 
 
