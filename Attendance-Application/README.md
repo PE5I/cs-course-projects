@@ -1,5 +1,5 @@
 # Attendance-Application
-Programming assignment from CPTS_122. A commandline application that stores and records student attendance.
+Programming assignment from CPTS_122, fall semester 2017. A commandline application that stores and records student attendance.
 
 This is a copy of the project before it was completed, so some functions and class methods are not finished.
 
