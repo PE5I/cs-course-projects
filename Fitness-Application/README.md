@@ -11,7 +11,7 @@ To build and run this application, run the following command
 
 * `mkdir build; cmake -B build -S .; cmake --build build`
 * `cd build`
-* `./connect-4`
+* `./fitness_app`
 
 ## Notes
 Must load the weekly diet plan and the weekly exercise before saving and terminate, otherwise, the previously saved data gets overwritten.
