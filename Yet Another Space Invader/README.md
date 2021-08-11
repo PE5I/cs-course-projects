@@ -12,6 +12,8 @@ Final assignment for CPTS_122, fall 2017. Developed a graphical application that
 
 ![image](https://user-images.githubusercontent.com/34149684/128998408-2a8930b2-3b6f-4170-b6d2-04e580a88a39.png)
 
+![image](https://user-images.githubusercontent.com/34149684/129016476-fdf814c9-faec-42fc-aea8-2381034b8b49.png)
+
 ## Prerequisite
 
 You need the following in order to build this project.
