@@ -3,7 +3,6 @@ First class assignment on C++ in CPTS_122 from fall 2017. The application implem
 
 ## Screenshots
 
-Main menu
 ![image](https://user-images.githubusercontent.com/34149684/128963888-e02b2874-1679-480b-8594-9b1cc77be696.png)
 
 ## Build and Run
