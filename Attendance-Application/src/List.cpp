@@ -1,5 +1,3 @@
-#pragma once
-
 #include "List.h"
 #include "ListNode.h"
 
