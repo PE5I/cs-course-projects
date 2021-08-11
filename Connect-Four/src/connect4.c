@@ -202,7 +202,6 @@ int computer_player(Cell board[][MAX_COL]){
 }
 
 int game(Cell board[][MAX_COL], Player pp[], int *round){
-    system("cls");
 	printf("YOU ARE PLAYER h!\n");
 	printf("When prompted, enter the column of where you want your pieces dropped\n");
 
