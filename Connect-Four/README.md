@@ -1,4 +1,11 @@
-# Connect-Four (Fall Semester, 2016)
-Connect Four end of semester extra credit project. Lost the finished code, but here's a snapshot.
+# Connect-Four
+Connect Four end of semester extra credit project for CPTS_121, fall semester 2016. Given a starter code, implement the game of connect four.
 
-This project is from December 2016 and hasn't been modified since. It's definitely not the epitome of one's best work.
+## Build & Run
+
+To build and run the program, run the following commands
+
+`mkdir build; cmake -B build -S .; cmake --build build`
+
+* `cd build`
+* `./connect-4`
