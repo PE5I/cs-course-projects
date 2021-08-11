@@ -9,3 +9,8 @@ To build and run the program, run the following commands
 
 * `cd build`
 * `./connect-4`
+
+## Some considerations
+This game could be further improved by the following:
+* allow the computer to make smart decisions
+* input sanitation
