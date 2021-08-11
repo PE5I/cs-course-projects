@@ -137,7 +137,7 @@ void FitnessAppWrapper::runApp(void) {
 	
 	while (user_input != 9) {
 		displayMenu();
-		cout << "~$ ";
+		cout << " >> ";
 		cin >> user_input;
 	
 		if (user_input == 1) { // Load DietPlan from file
