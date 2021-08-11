@@ -1,16 +1,16 @@
-#include "pa7.h"
 #include "menu.h"
 #include "List.h"
+#include "main.h"
 
-Menu::Menu(string new_master_filename, string new_course_list_filename) {
-	master_filename = new_master_filename;
+Menu::Menu(string new_main_filename, string new_course_list_filename) {
+	main_filename = new_main_filename;
 	course_list_filename = new_course_list_filename;
 }
 
 
 // functions
-// (1) Import course list, populates the master list with items from .csv
-void Menu::import_course(List &master_list, string filename) {
+// (1) Import course list, populates the main list with items from .csv
+void Menu::import_course(List &main_list, string filename) {
 	StudentData new_data;
 	ifstream infile;
 	infile.open(course_list_filename);
@@ -59,22 +59,24 @@ void Menu::import_course(List &master_list, string filename) {
 		//cout << token << "\n";
 		new_data.student_level = token;
 		
-		master_list.insertFront(master_list, new_data);
+		main_list.insertFront(main_list, new_data);
 	}
 
 	infile.close();
 }
 
-/*
-// (2) Load master list
-// populates master list with nodes from master.txt
-void Menu::load_master() {
-	ifstream infile; // read from master file
-	infile.open(MASTER_FILENAME, 'r');
+// (2) Load main list
+// populates main list with nodes from main.txt
+void Menu::load_main(List &main_list) {
+	ifstream infile; // read from main file
+	infile.open(course_list_filename);
 
-	
+	ofstream outfile; // write to main file
+	outfile.open(MAIN_FILENAME);
 
-	ListNode *traversal = master_list.getHead();
+	outfile << "Field,ID,Name,Email,Units,Program,Level" << "\n";
+
+	ListNode *traversal = main_list.getHead();
 
 	while(traversal) {
 		outfile << traversal->get_record_number()
@@ -96,17 +98,16 @@ void Menu::load_master() {
 
 	outfile.close();
 }
-*/
 
-// (3) Store master list
-// Stores contents of master list nodes to master.txt
-void Menu::save_master(List master_list) {
-	ofstream outfile; // write to master file
-	outfile.open(MASTER_FILENAME);
+// (3) Store main list
+// Stores contents of main list nodes to main.txt
+void Menu::save_main(List main_list) {
+	ofstream outfile; // write to main file
+	outfile.open(MAIN_FILENAME);
 
 	outfile << "Field,ID,Name,Email,Units,Program,Level" << "\n";
 
-	ListNode *traversal = master_list.getHead();
+	ListNode *traversal = main_list.getHead();
 
 	while(traversal) {
 		outfile << traversal->get_record_number()
@@ -130,10 +131,10 @@ void Menu::save_master(List master_list) {
 }
 
 // (4) Mark absences
-// runs through master list, displays student's name, and prompts if s/he was abset
+// runs through main list, displays student's name, and prompts if s/he was abset
 // the data is then pushed to the stack that is contained within the node representative of the student
-void Menu::roll_call(List &master) {
-	ListNode *traverse = master.getHead();
+void Menu::roll_call(List &main) {
+	ListNode *traverse = main.getHead();
 	string date_today = "0000-00-00";
 	date_today = get_date();
 
@@ -155,6 +156,7 @@ void Menu::roll_call(List &master) {
 	}
 }
 
+// ============================ These have not been implemented ========================//
 // (5) BONUS: Edit absences
 // prompt for an ID number OR name of student to edit, 
 // then it prompts for the date of absence to edit
@@ -169,9 +171,10 @@ void Menu::edit_roll_call() {
 void Menu::generate_report() {
 
 }
+// ====================================================================================//
 
-void Menu::generate_report_all(List master) {
-	ListNode *traversal = master.getHead();
+void Menu::generate_report_all(List main) {
+	ListNode *traversal = main.getHead();
 
 	while(traversal) {
 		cout << traversal->get_student_name()
@@ -182,8 +185,8 @@ void Menu::generate_report_all(List master) {
 	}
 }
 
-void Menu::generate_report_by_num_absence(List master, int num_absence) {
-	ListNode *traversal = master.getHead();
+void Menu::generate_report_by_num_absence(List main, int num_absence) {
+	ListNode *traversal = main.getHead();
 
 	while(traversal) {
 		if(traversal->get_student_absences() >= num_absence) {
@@ -198,8 +201,8 @@ void Menu::generate_report_by_num_absence(List master, int num_absence) {
 	}
 }
 
-void Menu::search_student_name(List master_record, string search_pattern) {
-	ListNode *traversal = master_record.getHead();
+void Menu::search_student_name(List main_record, string search_pattern) {
+	ListNode *traversal = main_record.getHead();
 
 	while(traversal) {
 		if(search_pattern == traversal->get_student_name()) {
@@ -220,8 +223,8 @@ void Menu::search_student_name(List master_record, string search_pattern) {
 	}
 }
 
-void Menu::search_student_id(List master_record, unsigned long int search_pattern) {
-	ListNode *traversal = master_record.getHead();
+void Menu::search_student_id(List main_record, unsigned long int search_pattern) {
+	ListNode *traversal = main_record.getHead();
 
 	while(traversal) {
 		if(search_pattern == traversal->get_student_id()) {
@@ -243,58 +246,56 @@ void Menu::search_student_id(List master_record, unsigned long int search_patter
 	}
 }
 
-
-
 void Menu::display_menu() {
 	cout << "\n***** Main Menu *****\n";
 	cout << "1. Import Course List (csv)\n";
-	cout << "2. Load Master List (master.txt)\n";
-	cout << "3. Store Master List\n";
+	cout << "2. Load main List (main.txt)\n";
+	cout << "3. Store main List\n";
 	cout << "4. Roll Call (Mark Absences)\n";
 	cout << "5. Edit Absences\n";
 	cout << "6. Generate Report\n";
 	cout << "7. Terminate Program\n";
-	cout << "(1-7) >>> ";
+	cout << " >> ";
 }
 
 void Menu::run_app() {
 	
 	StudentData new_data;
-	List master;
+	List main;
 	int choice = 0;
 	int report_choice = 0;
-	ListNode *traversal = master.getHead();
+	// ListNode *traversal = main.getHead();
 
-	//master.printList();
-	//start.save_master(master);
-	//roll_call(master);
+	//main.printList();
+	//start.save_main(main);
+	//roll_call(main);
 
 	do {
 		display_menu();
 
 		cin >> choice;
 		switch(choice) {
-			case 1:
-				if (master.getHead()) { 
-					master.list_destruct(); // destructs the previous master list so it can be overwritten
+			case IMPORT:
+				if (main.getHead()) { 
+					main.list_destruct(); // destructs the previous main list so it can be overwritten
 				}
-				import_course(master, COURSE_FILENAME);
+				import_course(main, COURSE_FILENAME);
 				break;
-			case 2:
+			case LOAD:
 				// I'm using the same function because they essentially does the same thing
 				// however, I am changing the filename passed in
-				if (master.getHead()) {
-					master.list_destruct();
+				if (main.getHead()) {
+					main.list_destruct();
 				}
-				import_course(master, MASTER_FILENAME); // loads master list from master.txt
+				import_course(main, MAIN_FILENAME); // loads main list from main.txt
 				break;
-			case 3:
-				save_master(master);
+			case STORE:
+				save_main(main);
 				break;
-			case 4:
-				roll_call(master);
+			case ROLLCALL:
+				roll_call(main);
 				break;
-			case 5:
+			case EDIT:
 				cout << "** Student Absence Editor **\n";
 				cout << "\t1. Search by name (last,first)\n";
 				cout << "\t2. Search by student ID\n";
@@ -306,18 +307,18 @@ void Menu::run_app() {
 					cout << ">> ";
 					cin >> input_student_name;
 
-					search_student_name(master,input_student_name);
+					search_student_name(main,input_student_name);
 				} else if (choice == 2) {
 					unsigned long int input_student_id = 0;
 					cout << "Enter student ID Number\n";
 					cout << ">> ";
 					cin >> input_student_id;
 
-					search_student_id(master, input_student_id);
+					search_student_id(main, input_student_id);
 				}
 
 				break;
-			case 6:
+			case REPORT:
 				cout << "*** Student Absence Report Module ***\n";
 				cout << "\t1. Generate absence report for all students\n";
 				cout << "\t2. Generate report for students based on number of absences\n";
@@ -326,32 +327,44 @@ void Menu::run_app() {
 				cin >> report_choice;
 
 				if(report_choice == 1) {
-					generate_report_all(master);
-				} else if (report_choice = 2) {
+					generate_report_all(main);
+				} else if (report_choice == 2) {
 					int num_absence = 0;
 					cout << "Print students with N or more absences." << endl;
 					cout << "Enter a value for N: ";
 					cin >> num_absence;
 
-					generate_report_by_num_absence(master, num_absence);
+					generate_report_by_num_absence(main, num_absence);
 				} else {
 					cout << "Invalid input..." << endl;
 				}
 
 				break;
-			case 7:
-				cout << "Adios" << endl;
-				master.list_destruct();
-				system("shutdown -s -t 15"); // save electricity while class is in-progress
+			case EXIT:
+				cout << "Exiting" << endl;
+				main.list_destruct();
 				break;
 
 			default:
 				cout << "Bad entry" << endl;
 		}
-		if(master.getHead() == nullptr) {
-			cout << "head is null!\n";
-		}
-		system("pause");
 	
 	} while (choice != 7 || (choice < 1) || (choice > 7));
+}
+
+string Menu::get_date(void) {
+	// retrieved from stackoverflow
+	time_t t = time(0); // get current time
+	struct tm * now = localtime(&t);
+
+	string date_now;
+
+	int year = 0, month = 0, day = 0;
+	year = (now->tm_year + 1900);
+	month = (now->tm_mon + 1);
+	day = (now->tm_mday);
+
+	date_now = to_string(year) + '-' + to_string(month) + '-' + to_string(day);
+	
+	return date_now;
 }

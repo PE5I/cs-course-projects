@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pa7.h"
 #include "Stack.h"
 
 typedef struct data {
@@ -22,7 +21,9 @@ private:
 	StudentData student_record;
 	Stack<string> date_absence;
 public:
-	ListNode(); 
+	ListNode() {
+		
+	}
 
 	// getters
 	string get_date_absent() { string date; date_absence.peek(date); return date;}

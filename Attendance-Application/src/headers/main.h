@@ -1,5 +1,3 @@
-#pragma once
-
 #include <cstdlib>
 #include <cstring>
 
@@ -20,7 +18,7 @@ using std::ostream;
 
 #include <time.h>
 
-#define MASTER_FILENAME "master.txt"
-#define COURSE_FILENAME "classList.csv"
+#define MAIN_FILENAME "../main.txt"
+#define COURSE_FILENAME "../classList.csv"
 
 string get_date(void);

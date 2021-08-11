@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "pa7.h"
+#include "main.h"
 
 using std::cout;
 using std::cin;
@@ -86,7 +86,6 @@ bool Stack<T>::pop(T &poppedItem)
 template <class T>
 T Stack<T>::peek(T &item)
 {
-	bool success = false;
 	if(isEmpty()) {
 		cout << "Empty stack!" << endl;
 	} else {

@@ -1,16 +1,14 @@
 #pragma once
 
-#include "pa7.h"
 #include "ListNode.h"
 
 class List {
 private:
 	ListNode *head;
+	// need to properly implement
 	void recursive_destruct(ListNode *temp) {
-		if(temp->getNext()) {
-			recursive_destruct(temp->getNext());
-			delete temp;
-		}
+		recursive_destruct(temp->getNext());
+		delete temp;
 		head = nullptr;
 	} 
 public:
@@ -26,7 +24,7 @@ public:
 	}
 
 	void list_destruct() {
-		recursive_destruct(head);	
+		//recursive_destruct(head);
 	}
 
 	// getters
