@@ -32,6 +32,3 @@ Then tell cmake where the build and source folders are, `cmake -B build -S .`
 
 Lastly, build the project from the build files that was created, `cmake --build build`.
 
-## Summary of Game
-
-Under construction!
